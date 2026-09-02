@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech-World Africa Limited — Building & Civil Works Contractors</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --concrete: #1C1E20; --dark: #252729; --mid: #313437;
+  --steel: #8A9199; --light: #C8CDD3; --white: #F0F2F4;
+  --orange: #E85D26; --orange2: #FF7A45;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: var(--concrete); color: var(--white); overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem; height: 64px;
+  background: rgba(28,30,32,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--orange);
+}
+.logo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--white); letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; }
+.logo span { color: var(--orange); }
+.nav-logo-img { height: 36px; width: auto; display: block; flex-shrink: 0; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--steel); text-decoration: none; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--white); }
+.nav-links a.active { border-bottom: 1px solid var(--orange); padding-bottom: 2px; }
+.nav-cta { background: var(--orange); color: var(--white); padding: 0.55rem 1.4rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+.nav-cta:hover { background: var(--orange2); }
+
+/* HERO */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 64px; position: relative; overflow: hidden; }
+.hero-left { background: var(--concrete); display: flex; flex-direction: column; justify-content: center; padding: 5rem 3rem; position: relative; z-index: 2; }
+.hero-left::after { content: ''; position: absolute; top: 0; right: -80px; bottom: 0; width: 160px; background: var(--concrete); clip-path: polygon(0 0, 0% 100%, 100% 100%); z-index: 3; }
+.hero-right { position: relative; overflow: hidden; }
+.hero-right img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.45) saturate(0.6); }
+.hero-right::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(232,93,38,0.2) 0%, transparent 60%); z-index: 1; }
+.cert-badges { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.badge { background: var(--mid); border: 1px solid var(--orange); color: var(--orange); font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.75rem; text-transform: uppercase; }
+.hero-left h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(3rem, 5.5vw, 5.5rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.01em; color: var(--white); text-transform: uppercase; margin-bottom: 1.5rem; }
+.hero-left h1 .accent { color: var(--orange); }
+.hero-left p { font-size: 1rem; line-height: 1.7; color: var(--steel); max-width: 420px; margin-bottom: 2.5rem; font-weight: 300; }
+.hero-actions { display: flex; gap: 1rem; }
+.btn-primary { background: var(--orange); color: var(--white); padding: 0.85rem 2rem; font-weight: 700; font-size: 0.825rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+.btn-primary:hover { background: var(--orange2); }
+.btn-outline { border: 1px solid var(--steel); color: var(--light); padding: 0.85rem 2rem; font-weight: 600; font-size: 0.825rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.btn-outline:hover { border-color: var(--white); color: var(--white); }
+.founded-tag { margin-top: 3rem; display: flex; align-items: center; gap: 1rem; border-top: 1px solid var(--mid); padding-top: 1.5rem; }
+.founded-tag span:first-child { font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--orange); line-height: 1; }
+.founded-tag small { font-size: 0.75rem; color: var(--steel); font-weight: 400; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* TICKER */
+.ticker { background: var(--orange); padding: 0.7rem 0; overflow: hidden; white-space: nowrap; }
+.ticker-inner { display: inline-flex; gap: 4rem; animation: ticker 30s linear infinite; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.ticker-item { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.9); }
+.ticker-dot { color: rgba(255,255,255,0.5); }
+
+/* ABOUT */
+.about { padding: 6rem 3rem; display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; max-width: 1300px; margin: 0 auto; align-items: start; }
+.section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; color: var(--orange); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+.section-label::before { content: ''; display: block; width: 30px; height: 2px; background: var(--orange); }
+.about-left h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); font-weight: 800; text-transform: uppercase; line-height: 1; color: var(--white); }
+.about-right p { font-size: 1rem; line-height: 1.8; color: var(--light); font-weight: 300; margin-bottom: 1.5rem; }
+.values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--mid); margin-top: 2.5rem; }
+@media (min-width: 1100px) { .values-grid { grid-template-columns: repeat(4, 1fr); } }
+.value-item { background: var(--dark); padding: 1.5rem; }
+.value-item h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.4rem; }
+.value-item p { font-size: 0.8rem; color: var(--steel); line-height: 1.6; font-weight: 300; margin: 0; }
+
+/* SERVICES */
+.services-section { background: var(--dark); padding: 6rem 3rem; }
+.section-head { max-width: 1300px; margin: 0 auto 3rem; display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--mid); padding-bottom: 1.5rem; }
+.section-head h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; text-transform: uppercase; line-height: 1; color: var(--white); }
+.section-head a { color: var(--orange); font-size: 0.825rem; font-weight: 600; text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; transition: color 0.2s; }
+.section-head a:hover { color: var(--orange2); }
+.services-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--mid); }
+.service-card { background: var(--dark); padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: background 0.2s; }
+.service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--orange); transition: height 0.3s; }
+.service-card:hover { background: var(--mid); }
+.service-card:hover::before { height: 100%; }
+.service-number { font-family: 'Barlow Condensed', sans-serif; font-size: 3.5rem; font-weight: 800; color: var(--mid); line-height: 1; margin-bottom: 1rem; }
+.service-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.75rem; }
+.service-card p { font-size: 0.825rem; color: var(--steel); line-height: 1.65; font-weight: 300; }
+
+/* STATS */
+.stats-bar { background: var(--orange); padding: 3.5rem 3rem; }
+.stats-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat { padding: 1.5rem 2rem; border-right: 1px solid rgba(255,255,255,0.2); }
+.stat:last-child { border-right: none; }
+.stat-n { font-family: 'Barlow Condensed', sans-serif; font-size: 3.5rem; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: 0.25rem; }
+.stat-l { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+
+/* CERTS TRIGGER */
+.certs-trigger-wrap { padding: 4rem 3rem; max-width: 1300px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; }
+.certs-trigger-wrap p { font-size: 0.9rem; color: var(--steel); font-weight: 300; }
+.btn-certs { display: inline-flex; align-items: center; gap: 0.6rem; background: transparent; border: 1px solid var(--orange); color: var(--orange); padding: 0.7rem 1.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, color 0.2s; }
+.btn-certs:hover { background: var(--orange); color: var(--white); }
+.btn-certs svg { width: 14px; height: 14px; }
+
+/* MODAL */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(10,12,14,0.92); z-index: 200; align-items: center; justify-content: center; padding: 2rem; }
+.modal-overlay.open { display: flex; }
+.modal { background: var(--dark); border-top: 3px solid var(--orange); max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; }
+.modal-header { padding: 2rem 2rem 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--mid); }
+.modal-header h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; font-weight: 800; text-transform: uppercase; color: var(--white); }
+.modal-close { background: none; border: none; color: var(--steel); font-size: 1.5rem; cursor: pointer; line-height: 1; transition: color 0.2s; }
+.modal-close:hover { color: var(--white); }
+.certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--mid); }
+.cert-card { background: var(--dark); padding: 1.75rem; }
+.cert-type { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.4rem; }
+.cert-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; color: var(--white); line-height: 1.1; margin-bottom: 0.4rem; }
+.cert-number { font-size: 0.72rem; color: var(--steel); font-family: monospace; letter-spacing: 0.04em; margin-bottom: 0.4rem; }
+.cert-validity { font-size: 0.72rem; color: var(--steel); }
+.cert-validity strong { color: var(--orange); font-weight: 600; }
+
+/* PROJECTS PREVIEW */
+.projects-preview { padding: 6rem 3rem; background: var(--mid); }
+.projects-preview-inner { max-width: 1300px; margin: 0 auto; }
+.preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 2.5rem; }
+.preview-item { overflow: hidden; aspect-ratio: 4/3; background: var(--concrete); position: relative; }
+.preview-item img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.8); transition: transform 0.4s, filter 0.4s; }
+.preview-item:hover img { transform: scale(1.05); filter: brightness(1); }
+.preview-item .preview-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.75rem 1rem; background: linear-gradient(to top, rgba(28,30,32,0.9), transparent); font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--white); }
+
+/* CTA */
+.cta-section { padding: 5rem 3rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; max-width: 1300px; margin: 0 auto; }
+.cta-section h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); font-weight: 800; text-transform: uppercase; line-height: 1; color: var(--white); }
+.cta-section h2 span { color: var(--orange); }
+.cta-block { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-end; }
+.cta-section p { font-size: 0.85rem; color: var(--steel); text-align: right; }
+
+/* FOOTER */
+footer { background: var(--dark); border-top: 3px solid var(--orange); padding: 4rem 3rem 2rem; }
+.footer-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+.footer-brand .logo { display: block; margin-bottom: 1rem; font-size: 1.1rem; }
+.footer-brand p { font-size: 0.8rem; color: var(--steel); line-height: 1.7; font-weight: 300; max-width: 280px; margin-bottom: 1.5rem; }
+.footer-contact a { display: block; font-size: 0.8rem; color: var(--light); text-decoration: none; margin-bottom: 0.4rem; transition: color 0.2s; }
+.footer-contact a:hover { color: var(--orange); }
+.footer-col h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-col ul a { font-size: 0.8rem; color: var(--steel); text-decoration: none; font-weight: 300; transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--white); }
+.footer-bottom { max-width: 1300px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid var(--mid); display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom p { font-size: 0.72rem; color: var(--steel); }
+
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { height: 40vh; }
+  .hero-left::after { display: none; }
+  .hero-left { padding: 3rem 1.5rem; }
+  .about { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; }
+  .values-grid { grid-template-columns: 1fr; }
+  .services-section { padding: 4rem 1.5rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .certs-grid { grid-template-columns: 1fr; }
+  .preview-grid { grid-template-columns: 1fr 1fr; }
+  .cta-section { grid-template-columns: 1fr; padding: 4rem 1.5rem; }
+  .cta-block { align-items: flex-start; }
+  .cta-section p { text-align: left; }
+  footer { padding: 3rem 1.5rem 1.5rem; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .certs-trigger-wrap { flex-direction: column; align-items: flex-start; padding: 3rem 1.5rem; }
+  .projects-preview { padding: 4rem 1.5rem; }
+  section > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo" style="display:flex;align-items:center;gap:0.6rem;"><img src="logo.png" alt="Tech-World Africa Logo" class="nav-logo-img">Tech<span>-</span>World Africa</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="cert-badges">
+      <span class="badge">NCA3 Building</span>
+      <span class="badge">NCA5 Roads</span>
+      <span class="badge">NCA3 Water</span>
+    </div>
+    <h1>Building <span class="accent">Kenya's</span><br>Infrastructure</h1>
+    <p>A full-service building and civil works contractor. From irrigation schemes and water systems to road works and building construction — delivered on time, within budget, to specification.</p>
+    <div class="hero-actions">
+      <a href="projects.html" class="btn-primary">View Projects</a>
+      <a href="contact.html" class="btn-outline">Get in Touch</a>
+    </div>
+    <div class="founded-tag">
+      <span>2014</span>
+      <small>Incorporated in Kenya<br>Company No. CPR/2013/127116</small>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="img9.jpg" alt="Site inspection — Nguruman Irrigation Scheme">
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Building Works</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Road Works</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Water Works</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Drainage Works</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Irrigation Schemes</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Bridge Construction</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Fencing & Masonry</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Excavation & Earthworks</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Building Works</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Road Works</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Water Works</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Drainage Works</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Irrigation Schemes</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Bridge Construction</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Fencing & Masonry</span><span class="ticker-dot"> ◆ </span>
+    <span class="ticker-item">Excavation & Earthworks</span><span class="ticker-dot"> ◆ </span>
+  </div>
+</div>
+
+<section class="about">
+  <div class="about-left">
+    <div class="section-label">Who We Are</div>
+    <h2>Over a Decade of Delivery</h2>
+  </div>
+  <div class="about-right">
+    <p>Tech-World Africa Limited was incorporated on 13th January 2014 under the Companies Act, Cap 486 of the Laws of Kenya. We specialise in mechanical, building and civil works, road works and general installations — delivering affordable, high-quality services to clients across the country.</p>
+    <p>Our teams of highly trained professionals work in conjunction with consultants to design, supervise and implement projects at minimum cost and maximum efficiency. We advise clients in all aspects of the project and guide them from conception to completion — endeavouring to achieve the highest level of Civil and Building works standards in project execution, supervision and on-site quality control.</p>
+    <div class="values-grid">
+      <div class="value-item"><h4>People</h4><p>We recruit knowledgeable and highly skilled professionals while providing ongoing opportunities in training and self-development.</p></div>
+      <div class="value-item"><h4>Commitment</h4><p>Our commitment to quality and timely delivery has established us as one of the leading engineering and construction firms in the region.</p></div>
+      <div class="value-item"><h4>Integrity</h4><p>A reputation built on honesty and trust — clients return to us repeatedly for their most important projects.</p></div>
+      <div class="value-item"><h4>Safety</h4><p>An independent OH&S consultant conducts regular jobsite inspections and safety audits to ensure compliance at all levels.</p></div>
+      <div class="value-item"><h4>Adaptability</h4><p>All projects are custom-built and tailored to meet specific requirements — adjusting construction specifications when needed.</p></div>
+      <div class="value-item"><h4>Continuous Learning</h4><p>We integrate the latest construction and engineering technology so our projects are never compromised by disruption or obsolescence.</p></div>
+      <div class="value-item"><h4>Customer Satisfaction</h4><p>Our work is never complete without the client's final approval — only after thorough inspection and testing is any project handed over.</p></div>
+      <div class="value-item"><h4>Environmental Care</h4><p>We concentrate on minimising environmental impact, ensuring good air quality and minimisation of noise pollution on all sites.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section style="background:var(--dark); padding:0;">
+  <div style="max-width:1300px; margin:0 auto; padding:5rem 3rem; display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--mid);">
+    <div style="background:var(--dark); padding:3rem;">
+      <div class="section-label" style="margin-bottom:1rem;">Our Mission</div>
+      <p style="font-family:'Barlow Condensed',sans-serif; font-size:1.6rem; font-weight:700; color:var(--white); line-height:1.2; text-transform:uppercase; margin-bottom:1.25rem;">To meet and exceed our clients' expectations — fostering long-term partnerships.</p>
+      <p style="font-size:0.875rem; color:var(--steel); line-height:1.75; font-weight:300;">We believe honesty and integrity shall be instilled in every job. We work hard for our clients to ensure the best prices and best quality work. We collaborate with the best subcontractors to bring your project in on time, under budget, and to the best quality workmanship.</p>
+    </div>
+    <div style="background:var(--dark); padding:3rem; border-left:1px solid var(--mid);">
+      <div class="section-label" style="margin-bottom:1rem;">Our Vision</div>
+      <p style="font-family:'Barlow Condensed',sans-serif; font-size:1.6rem; font-weight:700; color:var(--white); line-height:1.2; text-transform:uppercase; margin-bottom:1.25rem;">To be the leading company of choice for Building and Civil Engineering services in Kenya and the East and Central African Region.</p>
+      <p style="font-size:0.875rem; color:var(--steel); line-height:1.75; font-weight:300;">We believe our employees are our best asset — working hard every day to complete each job with quality workmanship, attention to detail, and pride. Tech-World Africa has the equipment and skilled workforce to handle any project, however extensive.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services-section">
+  <div class="section-head">
+    <div><div class="section-label" style="margin-bottom:0.75rem;">What We Do</div><h2>Our Services</h2></div>
+    <a href="projects.html">See our work →</a>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-number">01</div><h3>Building Construction</h3><p>Construction, renovation and maintenance of residential, commercial and institutional buildings.</p></div>
+    <div class="service-card"><div class="service-number">02</div><h3>Road Works</h3><p>Routine maintenance, gravelling, drainage, and cabro paving. NCA Class 5 certified.</p></div>
+    <div class="service-card"><div class="service-number">03</div><h3>Water Works & Irrigation</h3><p>Waterworks, irrigation schemes, and sewer lines installed to specification. NCA Class 3.</p></div>
+    <div class="service-card"><div class="service-number">04</div><h3>Excavation & Earthworks</h3><p>Earth dams, pans, site clearing and drainage works for projects of all scales.</p></div>
+    <div class="service-card"><div class="service-number">05</div><h3>Bridge Construction</h3><p>Design and construction of bridges as part of road and water infrastructure projects.</p></div>
+    <div class="service-card"><div class="service-number">06</div><h3>Fencing Solutions</h3><p>Masonry walls, chain link fencing, and perimeter security solutions for all property types.</p></div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-n">10+</div><div class="stat-l">Years in Operation</div></div>
+    <div class="stat"><div class="stat-n">3</div><div class="stat-l">NCA Registrations</div></div>
+    <div class="stat"><div class="stat-n">GOK</div><div class="stat-l">Government of Kenya Contractor</div></div>
+    <div class="stat"><div class="stat-n">KRA</div><div class="stat-l">Tax Compliant · PIN P051452085E</div></div>
+  </div>
+</div>
+
+<!-- CERTS TRIGGER -->
+<div class="certs-trigger-wrap">
+  <p>Tech-World Africa Limited holds valid NCA, KRA, and government procurement certifications.</p>
+  <button class="btn-certs" onclick="document.getElementById('certsModal').classList.add('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+    View Certifications
+  </button>
+</div>
+
+<!-- CERTS MODAL -->
+<div class="modal-overlay" id="certsModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Certifications & Registrations</h3>
+      <button class="modal-close" onclick="document.getElementById('certsModal').classList.remove('open')">✕</button>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-type">National Construction Authority</div><div class="cert-name">Building Works — NCA3</div><div class="cert-number">Reg: 41509/B/0619 · SN-625013</div><div class="cert-validity">Valid until <strong>31 July 2028</strong></div></div>
+      <div class="cert-card"><div class="cert-type">National Construction Authority</div><div class="cert-name">Road Works — NCA5</div><div class="cert-number">Reg: 41509/R/1022 · SN-625014</div><div class="cert-validity">Valid until <strong>31 July 2028</strong></div></div>
+      <div class="cert-card"><div class="cert-type">National Construction Authority</div><div class="cert-name">Water Works — NCA3</div><div class="cert-number">Reg: 41509/W/0619 · SN-625015</div><div class="cert-validity">Valid until <strong>31 July 2028</strong></div></div>
+      <div class="cert-card"><div class="cert-type">Kenya Revenue Authority</div><div class="cert-name">Tax Compliance Certificate</div><div class="cert-number">PIN: P051452085E · KRANON1458331925</div><div class="cert-validity">Valid until <strong>3 March 2026</strong></div></div>
+      <div class="cert-card"><div class="cert-type">Business Registration Service</div><div class="cert-name">Registered Limited Company</div><div class="cert-number">Company No: CPR/2013/127116</div><div class="cert-validity">Registered since <strong>13 January 2014</strong></div></div>
+      <div class="cert-card"><div class="cert-type">National Treasury — PPD</div><div class="cert-name">Women Enterprise Supplier</div><div class="cert-number">Ref: NT/PPD/2023/DGW/11141</div><div class="cert-validity">Women-owned enterprise — preference procurement</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS PREVIEW -->
+<section class="projects-preview">
+  <div class="projects-preview-inner">
+    <div class="section-head" style="max-width:100%;">
+      <div><div class="section-label" style="margin-bottom:0.75rem;">Featured Work</div><h2>Nguruman Irrigation Scheme</h2></div>
+      <a href="projects.html">All projects →</a>
+    </div>
+    <div class="preview-grid">
+      <div class="preview-item"><img src="img8.jpg" alt="Project commissioning"><div class="preview-label">Official Commissioning</div></div>
+      <div class="preview-item"><img src="img1.jpg" alt="Earthworks"><div class="preview-label">Earthworks & Excavation</div></div>
+      <div class="preview-item"><img src="img12.jpg" alt="Building works"><div class="preview-label">Building Construction</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div><h2>Ready to Start Your <span>Next Project?</span></h2></div>
+  <div class="cta-block">
+    <a href="tel:+254723581862" class="btn-primary">+254 723 581 862</a>
+    <a href="contact.html" class="btn-outline">Send an Enquiry</a>
+    <p>Westlands, Nairobi · info@tech-worldafrica.com</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo" style="display:flex;align-items:center;gap:0.6rem;"><img src="logo.png" alt="Tech-World Africa Logo" class="nav-logo-img">Tech<span>-</span>World Africa</a>
+      <p>Licensed Building, Road & Water Works contractor operating across Kenya. Incorporated 2014. NCA registered. KRA compliant.</p>
+      <div class="footer-contact">
+        <a href="tel:+254723581862">+254 723 581 862</a>
+        <a href="mailto:info@tech-worldafrica.com">info@tech-worldafrica.com</a>
+        <a href="#">1st Floor, Muthaiga View Place, Muthaiga</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Building Construction</a></li>
+        <li><a href="#">Road Works</a></li>
+        <li><a href="#">Water & Irrigation</a></li>
+        <li><a href="#">Earthworks</a></li>
+        <li><a href="#">Bridge Construction</a></li>
+        <li><a href="#">Fencing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Tech-World Africa Limited · CPR/2013/127116</p>
+    <p>Muthaiga, Nairobi, Kenya</p>
+  </div>
+</footer>
+
+</body>
+</html>
